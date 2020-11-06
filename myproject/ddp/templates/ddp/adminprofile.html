@@ -1,0 +1,236 @@
+{% extends 'ddp/main.html' %}
+
+{% block content %}
+
+<div  class="row">
+    <div class="col-md">
+		<div class="card card-body" style="background-color:darkgray;">
+			<h5>Admin Profile</h5>
+			<hr>
+            <p>Name: {{user.username}}</p>
+			<p>Email: {{user.email}}</p>
+
+		</div>
+	</div>
+</div>
+
+
+<br>
+
+
+
+
+<div class="row">
+
+    <div class="col">
+		<div class="card card-body" style="background-color:darkgray;">
+
+            <h5>Active Users' Details</h5>
+            <hr>
+			<form method="get">
+                <p>Name :  {{usersfilter.form.username}}
+                   </p>
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md">
+
+		<div class="card card-body" style="background-color:darkgray;">
+
+			<table class="table table-sm">
+				<tr>
+                    <th>User name</th>
+					<th>email</th>
+					<th>Date Registered</th>
+                    <th>Block User</th>
+				</tr>
+                    {% for user in users %}
+				<tr>
+                    <td>{{user.username}}</td>
+					<td>{{user.email}}</td>
+                    <td>{{user.date_joined}}</td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'blockuser' user.username %}">Block User</a></td>
+				</tr>
+					{% endfor %}
+			</table>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+    <div class="col">
+		<div class="card card-body" style="background-color:darkgray;">
+
+            <h5>Blocked Users' Details</h5>
+            <hr>
+			<!--<form method="get">
+                <p>Name :  {{blockuserfilter.form.username}}
+                   </p>
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>-->
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md">
+
+		<div class="card card-body" style="background-color:darkgray;">
+
+			<table class="table table-sm">
+				<tr>
+                    <th>User name</th>
+					<th>email</th>
+					<th>Date Registered</th>
+                    <th>Active User</th>
+				</tr>
+                    {% for user in blocked_users %}
+				<tr>
+                    <td>{{user.username}}</td>
+					<td>{{user.email}}</td>
+                    <td>{{user.date_joined}}</td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'activeuser' user.username %}">Active User</a></td>
+				</tr>
+					{% endfor %}
+			</table>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+<br>
+<div class="row">
+
+    <div class="col">
+		<div class="card card-body" style="background-color:darkgray;">
+
+            <h5>Details of Uploads</h5>
+            <hr>
+			<form method="get">
+                <p>Title :  {{upload_filters.form.u_title}}
+                  From date :  {{upload_filters.form.start_date}}
+                to :  {{upload_filters.form.end_date}} </p>
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md">
+		<div class="card card-body" style="background-color:darkgray;">
+
+			<table class="table table-sm">
+				<tr>
+                    <th>Created by</th>
+					<th>Title</th>
+					<th>Date Created</th>
+					<th>Download</th>
+                    <th>Delete</th>
+
+				</tr>
+                    {% for file in uploaded_files %}
+
+
+				<tr>
+                    <td>{{file.uploaded_by}}</td>
+					<td>{{file.u_title}}</td>
+					<td>{{file.u_date}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'download' file.u_title %}">View File</a></td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete' file.u_title %}">Delete Upload</a></td>
+				</tr>
+					{% endfor %}
+			</table>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+<br>
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body" style="background-color:darkgray;">
+
+            <h5>Details of Shared</h5>
+            <hr>
+			<form method="get">
+				<p>Title :  {{mysharefilter.form.s_title}}
+                  From date :  {{mysharefilter.form.s_start_date}}
+                to :  {{mysharefilter.form.s_end_date}} </p>
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+		</div>
+	</div>
+
+</div>
+
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body" style="background-color:darkgray;">
+
+			<table class="table table-sm">
+				<tr>
+                    <th>Shared by</th>
+                    <th>Shared to</th>
+                    <th>Title</th>
+					<th>Date Created</th>
+					<th>Download</th>
+					<th>Delete</th>
+				</tr>
+						{% for share in shares %}
+				<tr>
+                    <td>{{share.shared_by}}</td>
+                    <td>{{share.shared_to}}</td>
+					<td>{{share.s_title}}</td>
+					<td>{{share.s_date}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'download' share.s_title %}">View File</a></td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'deleteshare' share.s_title %}">Remove Share</a></td>
+				</tr>
+					{% endfor %}
+			</table>
+
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

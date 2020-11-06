@@ -1,0 +1,33 @@
+<style xmlns="http://www.w3.org/1999/html">
+    .center {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+</style>
+
+
+{% extends 'ddp/main.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<h1>Welcome to Data Duplication removal using File Checksum</h1>
+<p> Lets go...</p>
+
+<button class="center">
+    <a href={%url 'admin' user.username %}>click here to go your profile
+</button>
+
+
+
+
+{% endblock %}

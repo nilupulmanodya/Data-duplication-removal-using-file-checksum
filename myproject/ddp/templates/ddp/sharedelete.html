@@ -1,0 +1,20 @@
+{% extends 'ddp/main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<h1>Delete file</h1>
+
+<P>Are you sure to <b>delete?</b>  "{{title}}" </P>
+
+
+    <form action ="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'user' user.username %}">cancel</a>
+        <input type="submit" name="confirm">
+
+    </form>
+
+
+{% endblock %}

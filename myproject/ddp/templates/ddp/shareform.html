@@ -1,0 +1,20 @@
+{% extends 'ddp/main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<h1>Share Form</h1>
+
+<P>Chose your file and press submit</P>
+
+    <form action ="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{sharefile}}
+        <a href="{% url 'user' user.username %}">cancel</a>
+        <input type="submit" name="Submit">
+
+    </form>
+
+
+{% endblock %}

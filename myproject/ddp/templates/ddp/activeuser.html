@@ -1,0 +1,29 @@
+{% extends 'ddp/main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<h1>Active user</h1>
+
+<P>Are you sure to <b>Active ?</b> </P>
+<p>{{blockusers.username}}</p><br>
+
+<form action ="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'user' user.username %}">cancel</a>
+        <input type="submit" name="confirm">
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
