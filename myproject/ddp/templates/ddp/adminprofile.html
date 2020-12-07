@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<div  class="row">
+<div  class="col">
     <div class="col-md">
 		<div class="card card-body" style="background-color:darkgray;">
-			<h5>Admin Profile</h5>
+			<h5>Welcome to DDRUFC Admin</h5>
 			<hr>
             <p>Name: {{user.username}}</p>
 			<p>Email: {{user.email}}</p>
@@ -20,7 +20,7 @@
 
 
 
-<div class="row">
+<div class="col">
 
     <div class="col">
 		<div class="card card-body" style="background-color:darkgray;">
@@ -35,23 +35,26 @@
 		  </form>
 
 		</div>
-	</div>
-</div>
+	</div></div>
 
 
 
-<div class="row">
+
+<div class="col">
     <div class="col-md">
 
 		<div class="card card-body" style="background-color:darkgray;">
 
-			<table class="table table-sm">
+			<table class="table table-sm scrolldown">
+				<thead>
 				<tr>
                     <th>User name</th>
 					<th>email</th>
 					<th>Date Registered</th>
                     <th>Block User</th>
+
 				</tr>
+				</thead>
                     {% for user in users %}
 				<tr>
                     <td>{{user.username}}</td>
@@ -65,12 +68,14 @@
 		</div>
 	</div>
 
-</div>
+</div></div>
+
+<br>
 
 
 
 
-<div class="row">
+<div class="col">
 
     <div class="col">
 		<div class="card card-body" style="background-color:darkgray;">
@@ -90,18 +95,20 @@
 
 
 
-<div class="row">
+<div class="col">
     <div class="col-md">
 
 		<div class="card card-body" style="background-color:darkgray;">
 
-			<table class="table table-sm">
+			<table class="table table-sm scrolldown">
+				<thead>
 				<tr>
                     <th>User name</th>
 					<th>email</th>
 					<th>Date Registered</th>
                     <th>Active User</th>
 				</tr>
+				</thead>
                     {% for user in blocked_users %}
 				<tr>
                     <td>{{user.username}}</td>
@@ -123,12 +130,12 @@
 
 
 <br>
-<div class="row">
+<div class="col">
 
     <div class="col">
 		<div class="card card-body" style="background-color:darkgray;">
 
-            <h5>Details of Uploads</h5>
+            <h5>Details of Uploaded Files</h5>
             <hr>
 			<form method="get">
                 <p>Title :  {{upload_filters.form.u_title}}
@@ -143,19 +150,20 @@
 </div>
 
 
-<div class="row">
+<div class="col">
     <div class="col-md">
 		<div class="card card-body" style="background-color:darkgray;">
 
-			<table class="table table-sm">
+			<table class="table table-sm scrolldown">
+				<thead>
 				<tr>
                     <th>Created by</th>
 					<th>Title</th>
 					<th>Date Created</th>
 					<th>Download</th>
                     <th>Delete</th>
-
 				</tr>
+				</thead>
                     {% for file in uploaded_files %}
 
 
@@ -183,11 +191,11 @@
 
 <br>
 
-<div class="row">
+<div class="col">
 	<div class="col">
 		<div class="card card-body" style="background-color:darkgray;">
 
-            <h5>Details of Shared</h5>
+            <h5>Details of Shared Files</h5>
             <hr>
 			<form method="get">
 				<p>Title :  {{mysharefilter.form.s_title}}
@@ -203,11 +211,12 @@
 </div>
 
 
-<div class="row">
+<div class="col">
 	<div class="col-md">
 		<div class="card card-body" style="background-color:darkgray;">
 
-			<table class="table table-sm">
+			<table class="table table-sm scrolldown">
+				<thead>
 				<tr>
                     <th>Shared by</th>
                     <th>Shared to</th>
@@ -216,6 +225,7 @@
 					<th>Download</th>
 					<th>Delete</th>
 				</tr>
+				</thead>
 						{% for share in shares %}
 				<tr>
                     <td>{{share.shared_by}}</td>

@@ -4,9 +4,14 @@
 
 
 {% block content %}
-<h1>Delete file</h1>
+<h1 style="text-align:center">Delete file</h1>
 
-<P>Are you sure to <b>delete?</b>  "{{title}}" </P>
+<div style="text-align:center" class="col">
+<div  class="row" >
+    <div class="col-md">
+		<div class="card card-body" style="background-color:darkgray;">
+
+<P>Are you sure to <b>delete?</b> <br> "{{title}}" </P>
 
 
     <form action ="" method="POST">
@@ -18,3 +23,8 @@
 
 
 {% endblock %}
+
+        </div>
+    </div>
+</div>
+</div>

@@ -1,11 +1,11 @@
 {% extends 'ddp/main.html' %}
 
 {% block content %}
-
-<div  class="row">
+<div class = "col">
+<div  class="row" >
     <div class="col-md">
 		<div class="card card-body" style="background-color:darkgray;">
-			<h5>User Profile</h5>
+			<h5>My Profile</h5>
 			<hr>
             <p>Name: {{user.username}}</p>
 			<p>Email: {{user.email}}</p>
@@ -27,16 +27,17 @@
 
 		</div>
 	</div>
-</div>
+</div></div>
+
 
 
 <br>
-<div class="row">
+<div class="col">
 
     <div class="col">
 		<div class="card card-body" style="background-color:darkgray;">
 
-            <h5>Your Uploads</h5>
+            <h5>Your Files</h5>
             <hr>
 			<form method="get">
                 <p>Title :  {{upload_filters.form.u_title}}
@@ -48,20 +49,20 @@
 
 		</div>
 	</div>
-</div>
 
-<div class="row">
     <div class="col-md">
 		<div class="card card-body" style="background-color:darkgray;">
 
-			<table class="table table-sm">
-				<tr>
+			<table class="scrolldown table table-sm" >
+				<thead>
+                <tr>
 					<th>Title</th>
 					<th>Date Created</th>
 					<th>Download</th>
 					<th>Share</th>
 					<th>Delete</th>
 				</tr>
+                </thead>
                     {% for file in uploaded_files %}
 
 
@@ -84,11 +85,11 @@
 
 <br>
 
-<div class="row">
+<div class="col">
 	<div class="col">
 		<div class="card card-body" style="background-color:darkgray;">
 
-            <h5>Shared by others</h5>
+            <h5>Shared to you</h5>
             <hr>
 			<form method="get">
 				<p>Title :  {{mysharefilter.form.s_title}}
@@ -101,21 +102,23 @@
 		</div>
 	</div>
 
-</div>
 
 
-<div class="row">
+
+
 	<div class="col-md">
 		<div class="card card-body" style="background-color:darkgray;">
 
-			<table class="table table-sm">
-				<tr>
+			<table class="table table-sm scrolldown">
+				<thead>
+                <tr>
 					<th>Title</th>
 					<th>Shared by</th>
 					<th>Date Created</th>
 					<th>Download</th>
 					<th>Delete</th>
 				</tr>
+                </thead>
 						{% for share in shares %}
 				<tr>
 					<td>{{share.s_title}}</td>

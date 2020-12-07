@@ -6,10 +6,48 @@
     <meta charset="UTF-8">
     <title>Data duplication removal using file checksum</title>
 
+    <style>
+		table.scrolldown {
+			width: 100%;
+			/* border-collapse: collapse; */
+			border-spacing: 0;
+		}
+		/* To display the block as level element */
+		table.scrolldown tbody, table.scrolldown thead {
+			display: block;
+		}
+		table.scrolldown tbody {
+			/* Set the height of table body */
+			height: 100px;
+			/* Set vertical scroll */
+			overflow-y: auto;
+			/* Hide the horizontal scroll */
+			overflow-x: hidden;
+		}
+		tbody td, thead th {
+			width : 240px;
+			border-right: 2px solid gray;
+		}
+		td {
+			text-align:center;
+		}
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: black;
+          color: white;
+          text-align: right;
+        }
+
+	</style>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
-<body>
+<body style=background-color:#808080;">
 
     {% include 'ddp/navbar.html' %}
 
