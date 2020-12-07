@@ -4,9 +4,12 @@
 
 
 {% block content %}
-<h1>Share Form</h1>
+<h1 style="text-align:center">Share Your Files</h1>
+<div  class="col" style="text-align:center">
+    <div class="col-md">
+		<div class="card card-body" style="background-color:darkgray;">
+<P style="text-align:center">Chose your file and press submit</P>
 
-<P>Chose your file and press submit</P>
 
     <form action ="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -18,3 +21,6 @@
 
 
 {% endblock %}
+        </div>
+    </div>
+</div>

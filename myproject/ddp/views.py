@@ -228,7 +228,7 @@ def deleteshare(request, pk_title):
 
     if request.method == 'POST':
 #Deleting from Share model
-        deleting_file = Shared.objects.get(s_title=pk_title)
+        deleting_file = Shared.objects.get(id=pk_title)
         deleting_file.delete()
         return redirect('user', User.name)
 

@@ -4,10 +4,12 @@
 
 
 {% block content %}
-<h1>Active user</h1>
-
+<h1 style="text-align:center">Active user</h1>
+<div  class="row" style="text-align:center">
+    <div class="col-md">
+		<div class="card card-body" style="background-color:darkgray;">
 <P>Are you sure to <b>Active ?</b> </P>
-<p>{{blockusers.username}}</p><br>
+<p>{{users.username}}</p><br>
 
 <form action ="" method="POST">
         {% csrf_token %}

@@ -125,7 +125,7 @@
 					<td>{{share.shared_by}}</td>
 					<td>{{share.s_date}}</td>
 					<td><a class="btn btn-sm btn-info" href="{% url 'download' share.s_title %}">Download</a></td>
-					<td><a class="btn btn-sm btn-danger" href="{% url 'deleteshare' share.s_title %}">Delete File</a></td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'deleteshare' share.id %}">Delete File</a></td>
 				</tr>
 					{% endfor %}
 			</table>
